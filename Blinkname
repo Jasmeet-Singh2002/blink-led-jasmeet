@@ -2,21 +2,32 @@
 
 int led1 = D7; // led 1 = D7 set 
 
+int pushbutton = A0;
+int analogValue;
+
+
 void setup()  //setup - runs once at the beginning of your program
 {
   pinMode(led1, OUTPUT);
+  pinMode(pushbutton, INPUT);
+  
 }
 
 void loop()  // loop for blinking "Jasmeet" in argon particle
 {
-
+analogValue = analogRead(pushbutton);
+if (analogValue > 1){ 
+    digitalWrite(led1,LOW);
+}
+else {
+    
     //Morse code for "J"
     
    
     digitalWrite(led1, HIGH);
     delay(500);
     digitalWrite(led1, LOW);
-    delay(1000); 
+    delay(500); 
     digitalWrite(led1, HIGH);	   
     delay(1000);				
     digitalWrite(led1, LOW);	  
@@ -35,7 +46,7 @@ void loop()  // loop for blinking "Jasmeet" in argon particle
     digitalWrite(led1, HIGH);
     delay(500);
     digitalWrite(led1, LOW);
-    delay(1000);
+    delay(500);
     digitalWrite(led1, HIGH);	   
     delay(1000);				
     digitalWrite(led1, LOW);	  
@@ -46,15 +57,15 @@ void loop()  // loop for blinking "Jasmeet" in argon particle
     digitalWrite(led1, HIGH);
     delay(500);
     digitalWrite(led1, LOW);
-    delay(1000);
+    delay(500);
     digitalWrite(led1, HIGH);	   
     delay(500);				
     digitalWrite(led1, LOW);	  
-    delay(1000);
+    delay(500);
     digitalWrite(led1, HIGH);	   
     delay(500);				
     digitalWrite(led1, LOW);	  
-    delay(1000);
+    delay(500);
     
     //Morse code for "M"
     
@@ -72,14 +83,14 @@ void loop()  // loop for blinking "Jasmeet" in argon particle
     digitalWrite(led1, HIGH);	   
     delay(500);				
     digitalWrite(led1, LOW);	  
-    delay(1000);
+    delay(500);
     
     //Morse code for "E"
     
     digitalWrite(led1, HIGH);
     delay(500);
     digitalWrite(led1, LOW);
-    delay(1000);
+    delay(500);
   
     
     //Morse code for "T"
@@ -94,7 +105,8 @@ void loop()  // loop for blinking "Jasmeet" in argon particle
     
     digitalWrite(led1,LOW);
     delay(5000);
-    
+}{ 
+    digitalWrite(led1,LOW);
+}
     // And repeat!
-
 }
